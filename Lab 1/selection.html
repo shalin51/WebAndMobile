@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Search Form</title>
+
+	<link rel="stylesheet" href="assets/demo.css">
+	<link rel="stylesheet" href="assets/form-search.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js"
+    integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</head>
+
+
+	<header>
+		<h1>Class Details</h1>        
+    </header>
+
+    <div class="container">
+
+        <!-- You only need this form and the form-search.css -->
+
+        <div  class="row">
+            <div id="list" class="row">                               
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <script >
+        urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+        onEnrollClicked=function(seats){
+            debugger;
+            setSeat(urlParam("name"))
+            alert("Congrats!!! You enrolled sucessfully. Available Seats are "+(seats-1));
+            location.reload();
+        }
+        $(document).ready(function(){            
+            debugger;
+            var course=getCourse(urlParam("name"))           
+            var htmlString=` <h3>Web Develpment</h3> 
+                                    <div class="row ">
+                                        <span class="col-lg-2">Instructure: ${course.professor}</span>
+                                        <span class="col-lg-6">Course Number:${course.number}</span>
+                                    </div>
+
+                                    <div class="row" style="padding-top: 5px">
+                                        <span class="col-lg-2">Term: ${course.term}</span>
+                                        <span class="col-lg-2">Career : ${course.career}</span>
+                                </div>
+
+                                    <div class="row" style="padding-top: 40px">
+                                        <img src=${course.imgSrc} class="img-responsive col-lg-2">
+                                        <p >This is course for Graduate students</p>
+                                    </div>
+
+                                    <div class="row" style="padding-top: 40px">
+                                        <span class="col-lg-2">Credir hours:3</span>
+                                        <span>Schedule: ${course.duration}</span>
+                                </div>
+
+                                <div class="row" style="padding-top: 5px">
+                                        <span class="col-lg-2">Number of Seats:30</span>
+                                        <span>Available: ${course.numberOfStudentsEnrolled}</span>
+                                </div>
+
+                                <div class="row" style="padding-top: 5px">
+                                        <span class="col-lg-2">Course Rating: 5 out of 5</span>                        
+                                </div>
+
+                                <div class="row col-lg-3" style="padding-top: 25px">
+                                <button class="btn btn-primary pull-right" onclick="onEnrollClicked(${course.numberOfStudentsEnrolled})" >Enroll</button>
+                                </div>`           
+        
+                $('#list').append(htmlString)
+            
+        })
+
+
+     
+    </script>
+</body>
+
+</html>

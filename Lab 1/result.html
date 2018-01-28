@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Search Form</title>
+
+	<link rel="stylesheet" href="assets/demo.css">
+	<link rel="stylesheet" href="assets/form-search.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js"
+    integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</head>
+
+
+	<header>
+		<h1>Search Result</h1>        
+    </header>
+
+    <div class="container">
+
+        <!-- You only need this form and the form-search.css -->
+
+        <div  class="row">
+            <div id="list" class="row">
+               
+                  
+                   <div class="row ">
+                        <span class="col-lg-2">Instructure: Dr. Lee</span>
+                        <span class="col-lg-6">Course Number:CSEE 5214</span>
+                   </div>
+
+                   <div class="row" style="padding-top: 40px">
+                         <a href="selection.html"><img src="https://necurity.com/wp-content/uploads/2017/10/web-development.png" class="img-responsive col-lg-2"></a>
+                         <p >This is course is ablot learing web technologies </p>
+                   </div>
+
+                   <div class="row" style="padding-top: 40px">
+                        <span class="col-lg-2">Credir hours:3</span>
+                        <span>Schedule: Sat 2pm-5pm</span>
+                  </div>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <script >
+        urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+
+        
+        
+        $(document).ready(function(){
+            
+            var career=urlParam("career").replace(/%20/g, " ");
+            var cOption=urlParam("cOption").replace(/%20/g, " ");
+            debugger;
+            var data= getData(career,cOption)                      
+            data.forEach((n,i)=>{
+                $('#list').append(`<h3>${n.name}</h3> 
+                   <div class="row ">
+                        <span class="col-lg-2">Instructure: ${n.professor}</span>
+                        <span class="col-lg-6">Course Number:${n.number}</span>
+                   </div>
+                   <div class="row" style="padding-top: 40px">
+                         <a href="selection.html?name=${n.number}"><img src=${n.imgSrc} class="img-responsive col-lg-2"></a>
+                        
+                   </div>
+                   <div class="row" style="padding-top: 40px">
+                        <span class="col-lg-2">Credir hours:${n.creditHours}</span>
+                        <span>Schedule: ${n.duration}</span>
+                  </div>`)
+            })
+            
+        })
+    
+    </script>
+</body>
+
+</html>

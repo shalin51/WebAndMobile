@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Basic Form</title>
+
+	<link rel="stylesheet" href="assets/demo.css">
+	<link rel="stylesheet" href="assets/form-basic.css">
+
+</head>
+
+
+	<header>
+		<h1>Welcome to UMKC</h1>        
+    </header>
+
+   
+
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-basic.css -->
+
+        <form class="form-basic" method="post" action="#">
+
+            <div class="form-title-row">
+                <h1>Enter Search Criteria</h1>
+            </div>
+           
+            <div class="form-row">
+                <label>
+                    <span>Term</span>
+                    <select name="dropdown" id="term">
+                        <option>Select</option>  
+                        <option>Fall 2017</option>
+                        <option>Spring 2018</option>
+                        <option>Fall 2018</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Course Career</span>
+                    <select name="dropdown" id="career">
+                        <option>Select</option>                        
+                        <option>Undergraduate</option>
+                        <option>Graduate</option>
+                    </select>
+                </label>
+            </div>
+
+           
+
+            <div class="form-row">
+                <label>
+                    <span>Career Option</span>
+                    <select name="dropdown" id="carrer_option">
+                        <option>Select</option>  
+                        <option>Dental</option>
+                        <option>Law</option>
+                        <option>Computer Science</option>
+                        <option>Electrical Engineering</option>
+                    </select>
+                </label>
+            </div>
+             
+            <div class="form-row">
+                <button type="submit" onclick="onSubmitClicked()">Search</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+    onSubmitClicked=function(){        
+        window.open('result.html?career=Graduate&cOption=Computer Science')
+    }
+    </script>
+</body>
+
+</html>
