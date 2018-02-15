@@ -1,0 +1,33 @@
+<html ng-app><head>
+    <link rel="stylesheet" href="style.css" />
+        <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="controller.js"></script>
+  </head>
+  
+  <body ng-controller="tttController">
+    <h1>Welcome to Tic Tac Toe</h1>
+
+    <div class="container">
+      <div class="well">
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[0]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[1]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[2]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <br/>
+        <p>
+          <span ng-hide="winner || cat">Current Player: {{ currentPlayer }}</span>
+          <span ng-show="winner">Player {{ currentPlayer }} won!</span>
+        </p>
+      </div>
+    </div>
+          
+    <button ng-click="reset();" class="btn btn-primary btn-large">New Game</button>
+  </body>
+</html>

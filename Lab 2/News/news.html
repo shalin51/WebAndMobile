@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js"> 
+    <head>          
+        <title>Welcome to BBC News</title>    
+        <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>   
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.0.min.js"
+        integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Codrops top bar -->
+          
+            <header>
+                <h1>Welcome To BBC News</h1>			
+            </header>
+                  
+            <div class="container">
+                <div style="background-color: cornflowerblue;" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+               <div class="row">
+                 <h1> Topic: <span style="color:blue" id="lblTopic">No Topic</span></h1>  
+               </div>     
+               <div >
+                   <input class="form-control" type="text" id="txtSearch" placeholder="enter search phrase"/>
+                   <button class="btn btn-danger " id="btnSearch" onclick="Search()">Search</button>
+               </div>
+                    <div id="wrapper">
+                    
+                        
+                            <div  class="row">
+                                    <div id="list" class="row" style="background: white">
+                                       
+                                       
+                        
+                                        </div>
+                                    </div>
+                                </div>
+
+                        
+                </div>  
+            
+            </div>
+               
+        </div>
+    </body>
+</html>
